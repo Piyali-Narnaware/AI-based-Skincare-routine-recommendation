@@ -20,7 +20,6 @@ COUNTER_NAMESPACE = "skincare-recommendation-system"
 COUNTER_KEY = "page_views"
 
 
-@st.cache_resource
 def get_visit_count():
     try:
         url = f"https://api.countapi.xyz/hit/{COUNTER_NAMESPACE}/{COUNTER_KEY}"
