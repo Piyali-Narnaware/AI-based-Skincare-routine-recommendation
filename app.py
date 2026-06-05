@@ -1,5 +1,7 @@
+import json
 import pandas as pd
 import streamlit as st
+import urllib.request
 from sklearn.ensemble import RandomForestRegressor
 
 from src.recommendation_engine import generate_recommendations
@@ -13,6 +15,20 @@ st.set_page_config(
     page_icon="🧴",
     layout="wide"
 )
+
+COUNTER_NAMESPACE = "skincare-recommendation-system"
+COUNTER_KEY = "page_views"
+
+
+@st.cache_resource
+def get_visit_count():
+    try:
+        url = f"https://api.countapi.xyz/hit/{COUNTER_NAMESPACE}/{COUNTER_KEY}"
+        resp = urllib.request.urlopen(url, timeout=5)
+        data = json.loads(resp.read().decode())
+        return data.get("value", 0)
+    except Exception:
+        return None
 
 
 @st.cache_resource
@@ -160,6 +176,9 @@ hormonal_map = {
 }
 
 
+visit_count = get_visit_count()
+if visit_count is not None:
+    st.sidebar.markdown(f"**👁️ Total visits: {visit_count}**")
 st.title("🧴 Skincare Recommendation System")
 
 st.write(
