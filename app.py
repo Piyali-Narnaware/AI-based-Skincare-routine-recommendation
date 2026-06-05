@@ -179,10 +179,13 @@ hormonal_map = {
 }
 
 
-visit_count = get_visit_count()
-if visit_count is not None:
-    st.sidebar.markdown(f"**👁️ Total visits: {visit_count}**")
-st.title("🧴 Skincare Recommendation System")
+col_title, col_counter = st.columns([10, 1])
+with col_title:
+    st.title("🧴 Skincare Recommendation System")
+with col_counter:
+    visit_count = get_visit_count()
+    if visit_count is not None:
+        st.caption(f"👁️ {visit_count}")
 
 st.write(
     "Answer the questions below to get your skin analysis, ingredient guidance, "
