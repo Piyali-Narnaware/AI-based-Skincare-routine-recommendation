@@ -18,26 +18,6 @@ def derive_condition_tags(row):
 
     return tags
 
-def derive_condition_tags(row):
-    tags = []
-
-    if row["acne_score"] >= 3:
-        tags.append("acne_prone")
-
-    if row["barrier_score"] <= 2:
-        tags.append("barrier_impaired")
-
-    if row["dryness_score"] >= 3:
-        tags.append("dehydration_prone")
-
-    if row["sensitivity_score"] >= 3:
-        tags.append("reactive")
-
-    if row["oiliness_score"] >= 3:
-        tags.append("high_sebum")
-
-    return tags
-
 
 BASE_RECOMMENDATIONS = {
     "oily": {

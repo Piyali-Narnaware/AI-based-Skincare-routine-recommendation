@@ -1,8 +1,11 @@
+import os
 import pandas as pd
 from src.ingredient_parser import parse_product_ingredients
 
 
-def load_products_from_csv(csv_path="E:/project/skincare/skincare/data/raw_product_database.csv"):
+def load_products_from_csv(csv_path=None):
+    if csv_path is None:
+        csv_path = os.path.join(os.path.dirname(__file__), "..", "data", "raw_product_database.csv")
     df = pd.read_csv(csv_path)
 
     products = []

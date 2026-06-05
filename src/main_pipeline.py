@@ -1,16 +1,21 @@
+import sys
+import os
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+
 import pandas as pd
 from sklearn.ensemble import RandomForestRegressor
 
-from recommendation_engine import generate_recommendations
-from product_matcher import recommend_products
-from routine_engine import generate_routine
+from src.recommendation_engine import generate_recommendations
+from src.product_matcher import recommend_products
+from src.routine_engine import generate_routine
 
 
 # -----------------------------
 # 1. Load dataset
 # -----------------------------
 
-df = pd.read_csv("E:/project/skincare/skincare/scripts/model_training_data_3.csv")
+import os
+df = pd.read_csv(os.path.join(os.path.dirname(__file__), "..", "scripts", "model_training_data_3.csv"))
 
 
 # -----------------------------

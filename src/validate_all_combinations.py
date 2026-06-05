@@ -2,16 +2,12 @@ import itertools
 import pandas as pd
 from sklearn.ensemble import RandomForestRegressor
 
-from recommendation_engine import generate_recommendations
-import sys
 import os
-
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
-
-from app import classify_skin_type, get_base_skin_type
+from src.recommendation_engine import generate_recommendations
+from src.skin_classifier import classify_skin_type, get_base_skin_type
 
 
-df = pd.read_csv("data/model_training_data_3.csv")
+df = pd.read_csv(os.path.join(os.path.dirname(__file__), "..", "data", "model_training_data_3.csv"))
 
 feature_cols = [
     "age_group",

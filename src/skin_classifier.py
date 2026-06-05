@@ -1,10 +1,3 @@
-import numpy as np
-from recommendation_engine import generate_recommendations
-from routine_engine import generate_routine
-from product_matcher import match_products
-from skin_classifier import classify_skin_type, get_base_skin_type
-
-
 def classify_skin_type(trait_scores, user_answers):
     oil = trait_scores["oiliness_score"]
     dry = trait_scores["dryness_score"]
