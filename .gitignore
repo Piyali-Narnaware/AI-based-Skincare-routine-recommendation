@@ -45,5 +45,8 @@ MANIFEST
 # *.csv
 # data/
 
+# Visit counter
+data/visit_count.json
+
 # OS
 Thumbs.db

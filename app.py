@@ -1,7 +1,7 @@
+import os
 import json
 import pandas as pd
 import streamlit as st
-import urllib.request
 from sklearn.ensemble import RandomForestRegressor
 
 from src.recommendation_engine import generate_recommendations
@@ -16,16 +16,20 @@ st.set_page_config(
     layout="wide"
 )
 
-COUNTER_NAMESPACE = "skincare-recommendation-system"
-COUNTER_KEY = "page_views"
+COUNTER_FILE = os.path.join(os.path.dirname(__file__), "data", "visit_count.json")
 
 
 def get_visit_count():
     try:
-        url = f"https://api.countapi.xyz/hit/{COUNTER_NAMESPACE}/{COUNTER_KEY}"
-        resp = urllib.request.urlopen(url, timeout=5)
-        data = json.loads(resp.read().decode())
-        return data.get("value", 0)
+        count = 0
+        if os.path.exists(COUNTER_FILE):
+            with open(COUNTER_FILE, "r") as f:
+                data = json.load(f)
+                count = data.get("count", 0)
+        count += 1
+        with open(COUNTER_FILE, "w") as f:
+            json.dump({"count": count}, f)
+        return count
     except Exception:
         return None
 
