@@ -96,7 +96,7 @@ def recommend_products(recommendations, region="India"):
     neutral = []
 
     for product in PRODUCTS:
-        if product.get("region", "India") != region:
+        if region not in product.get("region", ["India"]):
             continue
         scored = score_product(product, recommendations)
 

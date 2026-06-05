@@ -18,7 +18,7 @@ def load_products_from_csv(csv_path=None):
             "brand": row["brand"],
             "category": row["category"],
             "price_inr": row["price_inr"],
-            "region": row.get("region", "India"),
+            "region": [r.strip() for r in row.get("region", "India").split(";")],
             "raw_ingredients": row["raw_ingredients"],
             "ingredients": parsed["ingredients"],
             "key_actives": parsed["key_actives"]

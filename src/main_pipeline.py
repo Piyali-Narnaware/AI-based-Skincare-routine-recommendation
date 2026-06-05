@@ -130,7 +130,8 @@ recommendations = generate_recommendations(
     trait_scores
 )
 
-product_results = recommend_products(recommendations, region="India")
+REGION = "India"
+product_results = recommend_products(recommendations, region=REGION)
 
 routine = generate_routine(recommendations)
 # -----------------------------

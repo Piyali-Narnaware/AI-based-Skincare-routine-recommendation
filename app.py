@@ -234,7 +234,7 @@ with col2:
 
 region_label = st.selectbox(
     "Which region's products would you like recommendations for?",
-    ["India", "International"]
+    ["India", "UK"]
 )
 
 acne_prone_label = st.radio(
