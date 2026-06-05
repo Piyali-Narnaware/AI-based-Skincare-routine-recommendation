@@ -78,6 +78,7 @@ def score_product(product, recommendations):
         "brand": product["brand"],
         "category": product["category"],
         "price_inr": product["price_inr"],
+        "price_gbp": product["price_gbp"],
         "score": score,
         "status": status,
         "matched_good": matched_good,
@@ -90,13 +91,32 @@ def score_product(product, recommendations):
         else "",
     }
 
-def recommend_products(recommendations, region="India"):
+BUDGET_RANGES = {
+    "India": {"Budget": (0, 500), "Mid-range": (500, 1000), "Premium": (1000, float("inf"))},
+    "UK": {"Budget": (0, 8), "Mid-range": (8, 15), "Premium": (15, float("inf"))},
+}
+
+
+def in_budget(product, region, budget):
+    if budget == "All":
+        return True
+    ranges = BUDGET_RANGES.get(region)
+    if not ranges or budget not in ranges:
+        return True
+    lo, hi = ranges[budget]
+    price = product["price_gbp"] if region == "UK" else product["price_inr"]
+    return lo <= price < hi
+
+
+def recommend_products(recommendations, region="India", budget="All"):
     recommended = []
     avoid = []
     neutral = []
 
     for product in PRODUCTS:
         if region not in product.get("region", ["India"]):
+            continue
+        if not in_budget(product, region, budget):
             continue
         scored = score_product(product, recommendations)
 

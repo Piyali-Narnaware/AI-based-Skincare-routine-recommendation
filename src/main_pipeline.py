@@ -131,7 +131,8 @@ recommendations = generate_recommendations(
 )
 
 REGION = "India"
-product_results = recommend_products(recommendations, region=REGION)
+BUDGET = "All"
+product_results = recommend_products(recommendations, region=REGION, budget=BUDGET)
 
 routine = generate_routine(recommendations)
 # -----------------------------

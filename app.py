@@ -262,6 +262,11 @@ region_label = st.selectbox(
     ["India", "UK"]
 )
 
+budget_label = st.selectbox(
+    "Budget preference",
+    ["All", "Budget", "Mid-range", "Premium"]
+)
+
 acne_prone_label = st.radio(
     "Do you consider your skin acne-prone?",
     ["No", "Yes"],
@@ -310,7 +315,7 @@ if st.button("Analyze My Skin", type="primary"):
         trait_scores
     )
 
-    product_results = recommend_products(recommendations, region=region_label)
+    product_results = recommend_products(recommendations, region=region_label, budget=budget_label)
     routine = generate_routine(recommendations)
 
     st.header("Your Skin Analysis")
@@ -433,11 +438,14 @@ if st.button("Analyze My Skin", type="primary"):
                 st.subheader(category.title())
                 st.write(f"**{product['product_name']}**")
                 st.write(f"Brand: {product['brand']}")
-                st.write(f"Price: ₹{product['price_inr']}")
+                price = product['price_gbp'] if region_label == "UK" else product['price_inr']
+                sym = "£" if region_label == "UK" else "₹"
+                st.write(f"Price: {sym}{price}")
                 st.write(f"Match: {get_match_label(product['score'])}")
                 st.write(product["why_recommended"])
 
-    st.caption(f"Showing products available in: **{region_label}**")
+    currency = "£" if region_label == "UK" else "₹"
+    st.caption(f"Showing products available in **{region_label}** | Budget: **{budget_label}**")
 
     st.header("Products to Avoid")
 
