@@ -90,12 +90,14 @@ def score_product(product, recommendations):
         else "",
     }
 
-def recommend_products(recommendations):
+def recommend_products(recommendations, region="India"):
     recommended = []
     avoid = []
     neutral = []
 
     for product in PRODUCTS:
+        if product.get("region", "India") != region:
+            continue
         scored = score_product(product, recommendations)
 
         if scored["status"] == "recommended":

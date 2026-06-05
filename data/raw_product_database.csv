@@ -1,22 +1,22 @@
-product_name,brand,category,price_inr,raw_ingredients
-Minimalist 2% Salicylic Acid Face Wash,Minimalist,cleanser,299,"Aqua, Salicylic Acid 2%, Zinc PCA, Glycerin, Panthenol"
-CeraVe Foaming Facial Cleanser,CeraVe,cleanser,750,"Aqua, Ceramide NP, Ceramide AP, Niacinamide, Glycerin"
-Simple Refreshing Face Wash,Simple,cleanser,325,"Aqua, Glycerin, Panthenol, Allantoin"
-Minimalist 10% Niacinamide Serum,Minimalist,serum,599,"Aqua, Niacinamide 10%, Zinc PCA, Glycerin"
-The Derma Co Niacinamide Serum,The Derma Co,serum,599,"Aqua, Niacinamide, Zinc PCA, Panthenol"
-Plum 15% Vitamin C Serum,Plum,serum,790,"Aqua, Ascorbic Acid, Glycerin, Hyaluronic Acid, Fragrance"
-Re'equil Oil Free Moisturiser,Re'equil,moisturiser,395,"Aqua, Glycerin, Zinc PCA, Panthenol"
-CeraVe Moisturising Cream,CeraVe,moisturiser,850,"Aqua, Ceramide NP, Cholesterol, Fatty Acids, Glycerin"
-Nivea Soft Cream,Nivea,moisturiser,250,"Aqua, Mineral Oil, Fragrance, Glycerin"
-Dot & Key Cica Niacinamide Sunscreen,Dot & Key,sunscreen,495,"Aqua, Niacinamide, Centella Asiatica, Glycerin, UV Filters"
-Neutrogena Ultra Sheer Sunscreen,Neutrogena,sunscreen,550,"Aqua, UV Filters, Glycerin, Fragrance"
-La Shield Sunscreen Gel,La Shield,sunscreen,700,"Aqua, UV Filters, Dimethicone, Glycerin"
-Minimalist Azelaic Acid 10%,Minimalist,treatment,549,"Aqua, Azelaic Acid, Glycerin, Panthenol"
-The Derma Co Salicylic Acid Serum,The Derma Co,treatment,599,"Aqua, Salicylic Acid, Zinc PCA, Niacinamide"
-Plum Green Tea Night Gel,Plum,treatment,575,"Aqua, Green Tea, Glycerin, Fragrance"
-Minimalist PHA Toner,Minimalist,toner,499,"Aqua, Gluconolactone, Glycerin, Panthenol"
-Klairs Supple Preparation Toner,Klairs,toner,1450,"Aqua, Glycerin, Centella Asiatica, Sodium Hyaluronate"
-Mamaearth Ubtan Face Mask,Mamaearth,mask,499,"Turmeric, Essential Oils, Fragrance"
-Innisfree Clay Mask,Innisfree,mask,1100,"Clay, Glycerin, Panthenol"
-Biotique Coconut Cream,Biotique,moisturiser,199,"Coconut Oil, Mineral Oil, Fragrance"
-Wow Tea Tree Face Wash,WOW,cleanser,299,"Tea Tree Oil, Essential Oils, Fragrance"
+product_name,brand,category,price_inr,raw_ingredients,region
+Minimalist 2% Salicylic Acid Face Wash,Minimalist,cleanser,299,"Aqua, Salicylic Acid 2%, Zinc PCA, Glycerin, Panthenol",India
+CeraVe Foaming Facial Cleanser,CeraVe,cleanser,750,"Aqua, Ceramide NP, Ceramide AP, Niacinamide, Glycerin",International
+Simple Refreshing Face Wash,Simple,cleanser,325,"Aqua, Glycerin, Panthenol, Allantoin",International
+Minimalist 10% Niacinamide Serum,Minimalist,serum,599,"Aqua, Niacinamide 10%, Zinc PCA, Glycerin",India
+The Derma Co Niacinamide Serum,The Derma Co,serum,599,"Aqua, Niacinamide, Zinc PCA, Panthenol",India
+Plum 15% Vitamin C Serum,Plum,serum,790,"Aqua, Ascorbic Acid, Glycerin, Hyaluronic Acid, Fragrance",India
+Re'equil Oil Free Moisturiser,Re'equil,moisturiser,395,"Aqua, Glycerin, Zinc PCA, Panthenol",India
+CeraVe Moisturising Cream,CeraVe,moisturiser,850,"Aqua, Ceramide NP, Cholesterol, Fatty Acids, Glycerin",International
+Nivea Soft Cream,Nivea,moisturiser,250,"Aqua, Mineral Oil, Fragrance, Glycerin",International
+Dot & Key Cica Niacinamide Sunscreen,Dot & Key,sunscreen,495,"Aqua, Niacinamide, Centella Asiatica, Glycerin, UV Filters",India
+Neutrogena Ultra Sheer Sunscreen,Neutrogena,sunscreen,550,"Aqua, UV Filters, Glycerin, Fragrance",International
+La Shield Sunscreen Gel,La Shield,sunscreen,700,"Aqua, UV Filters, Dimethicone, Glycerin",India
+Minimalist Azelaic Acid 10%,Minimalist,treatment,549,"Aqua, Azelaic Acid, Glycerin, Panthenol",India
+The Derma Co Salicylic Acid Serum,The Derma Co,treatment,599,"Aqua, Salicylic Acid, Zinc PCA, Niacinamide",India
+Plum Green Tea Night Gel,Plum,treatment,575,"Aqua, Green Tea, Glycerin, Fragrance",India
+Minimalist PHA Toner,Minimalist,toner,499,"Aqua, Gluconolactone, Glycerin, Panthenol",India
+Klairs Supple Preparation Toner,Klairs,toner,1450,"Aqua, Glycerin, Centella Asiatica, Sodium Hyaluronate",International
+Mamaearth Ubtan Face Mask,Mamaearth,mask,499,"Turmeric, Essential Oils, Fragrance",India
+Innisfree Clay Mask,Innisfree,mask,1100,"Clay, Glycerin, Panthenol",International
+Biotique Coconut Cream,Biotique,moisturiser,199,"Coconut Oil, Mineral Oil, Fragrance",India
+Wow Tea Tree Face Wash,WOW,cleanser,299,"Tea Tree Oil, Essential Oils, Fragrance",India

@@ -232,6 +232,11 @@ with col2:
         list(hormonal_map.keys())
     )
 
+region_label = st.selectbox(
+    "Which region's products would you like recommendations for?",
+    ["India", "International"]
+)
+
 acne_prone_label = st.radio(
     "Do you consider your skin acne-prone?",
     ["No", "Yes"],
@@ -280,7 +285,7 @@ if st.button("Analyze My Skin", type="primary"):
         trait_scores
     )
 
-    product_results = recommend_products(recommendations)
+    product_results = recommend_products(recommendations, region=region_label)
     routine = generate_routine(recommendations)
 
     st.header("Your Skin Analysis")
@@ -406,6 +411,8 @@ if st.button("Analyze My Skin", type="primary"):
                 st.write(f"Price: ₹{product['price_inr']}")
                 st.write(f"Match: {get_match_label(product['score'])}")
                 st.write(product["why_recommended"])
+
+    st.caption(f"Showing products available in: **{region_label}**")
 
     st.header("Products to Avoid")
 
