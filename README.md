@@ -69,14 +69,3 @@ Routine:             AM — niacinamide, zinc pca, green tea
 - **Educators** — Demonstrate how ML + rule-based systems can solve real-world problems
 - **Developers** — Use as a template for building domain-specific recommendation engines
 
----
-
-## Future Scope
-
-- **Deep learning model** — Replace Random Forest with a neural network for higher accuracy
-- **Larger product database** — Scrape or API-integrate thousands of products with real-time pricing
-- **User feedback loop** — Let users rate recommendations and retrain the model over time
-- **Image-based analysis** — Add computer vision to assess skin from photos
-- **Mobile app** — Wrap the engine in a React Native / Flutter frontend
-- **Multi-language support** — Expand questionnaire and recommendations to regional languages
-- **REST API** — Serve predictions via FastAPI for third-party integrations
