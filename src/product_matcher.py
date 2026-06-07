@@ -175,25 +175,26 @@ def recommend_products(recommendations, region="India", budget="All"):
     avoid = sorted(avoid, key=lambda x: x["score"])
 
     # -----------------------------
-    # Group by category (FIXED INDENTATION)
+    # Group all products by category (sorted by score)
     # -----------------------------
-    category_best = {}
+    category_products = {}
 
     for product in recommended:
         cat = product["category"].strip().lower()
+        if cat not in category_products:
+            category_products[cat] = []
+        category_products[cat].append(product)
 
-        if cat not in category_best:
-            category_best[cat] = product
-
-    # Convert to list
-    category_recommendations = list(category_best.values())
+    # Best (top 1) per category
+    category_best = {cat: prods[0] for cat, prods in category_products.items()}
 
     # -----------------------------
     # Final return
     # -----------------------------
     return {
         "recommended_products": recommended,
-        "category_recommendations": category_recommendations,
+        "category_recommendations": list(category_best.values()),
+        "category_products": category_products,
         "avoid_products": avoid,
         "neutral_products": neutral
     }

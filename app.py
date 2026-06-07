@@ -425,29 +425,36 @@ if st.button("Analyze My Skin", type="primary"):
         "sunscreen",
     ]
 
-    category_map = {
-        product["category"].strip().lower(): product
-        for product in product_results["category_recommendations"]
-    }
+    category_products = product_results.get("category_products", {})
+    sym = "£" if region_label == "UK" else "₹"
+    price_key = "price_gbp" if region_label == "UK" else "price_inr"
 
     for category in routine_order:
-        if category in category_map:
-            product = category_map[category]
+        products_in_cat = category_products.get(category, [])
+        if not products_in_cat:
+            continue
 
+        total = len(products_in_cat)
+        st.subheader(f"{category.title()} — {total} product(s) found")
+
+        for idx, product in enumerate(products_in_cat):
             with st.container(border=True):
-                st.subheader(category.title())
+                if idx == 0:
+                    st.markdown("**🏆 Top Pick**")
+                else:
+                    st.markdown(f"*Alternative #{idx}*")
                 st.write(f"**{product['product_name']}**")
                 st.write(f"Brand: {product['brand']}")
-                price = product['price_gbp'] if region_label == "UK" else product['price_inr']
-                sym = "£" if region_label == "UK" else "₹"
-                st.write(f"Price: {sym}{price}")
-                st.write(f"Match: {get_match_label(product['score'])}")
+                st.write(f"Price: {sym}{product[price_key]}")
+                st.write(f"Match: {get_match_label(product['score'])} (Score: {product['score']})")
                 st.markdown(product["why_recommended"])
-                st.divider()
-                st.markdown(product.get("highlights", ""))
+                if product.get("highlights"):
+                    st.divider()
+                    st.markdown(product["highlights"])
 
-    currency = "£" if region_label == "UK" else "₹"
     st.caption(f"Showing products available in **{region_label}** | Budget: **{budget_label}**")
+    total_rec = len(product_results["recommended_products"])
+    st.caption(f"Total matching products across all categories: **{total_rec}**")
 
     st.header("Products to Avoid")
 
