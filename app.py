@@ -442,7 +442,7 @@ if st.button("Analyze My Skin", type="primary"):
                 sym = "£" if region_label == "UK" else "₹"
                 st.write(f"Price: {sym}{price}")
                 st.write(f"Match: {get_match_label(product['score'])}")
-                st.write(product["why_recommended"])
+                st.markdown(product["why_recommended"])
 
     currency = "£" if region_label == "UK" else "₹"
     st.caption(f"Showing products available in **{region_label}** | Budget: **{budget_label}**")
@@ -459,3 +459,10 @@ if st.button("Analyze My Skin", type="primary"):
                 st.write(f"Problem ingredients: {', '.join(product['matched_bad'])}")
     else:
         st.write("No avoid products detected.")
+
+    st.divider()
+    st.caption(
+        "⚠️ **Disclaimer:** This is an AI-generated recommendation based on your questionnaire responses. "
+        "It is not a substitute for professional dermatological advice. "
+        "Always patch-test new products and consult a dermatologist for persistent skin concerns."
+    )

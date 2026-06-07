@@ -1,6 +1,48 @@
 from src.product_database import PRODUCTS
 
 
+INGREDIENT_BENEFITS = {
+    "niacinamide": "regulates oil production, reduces pore appearance, and strengthens skin barrier",
+    "salicylic acid": "deeply cleanses pores, reduces blackheads, and controls acne breakouts",
+    "zinc pca": "controls sebum production and soothes inflammation",
+    "hyaluronic acid": "provides intense hydration and plumps the skin",
+    "ceramides": "repairs and strengthens the skin barrier, locking in moisture",
+    "panthenol": "soothes irritation and supports skin healing",
+    "glycerin": "hydrates and maintains skin moisture balance",
+    "centella asiatica": "calms inflammation, boosts collagen, and accelerates healing",
+    "green tea": "provides antioxidant protection and soothes inflammation",
+    "azelaic acid": "reduces redness, unclogs pores, and brightens skin tone",
+    "retinol": "stimulates collagen production, reduces fine lines and acne",
+    "vitamin c": "brightens skin, reduces dark spots, and protects from environmental damage",
+    "squalane": "hydrates without clogging pores and mimics skin's natural oils",
+}
+
+SYNERGY_NOTES = {
+    ("niacinamide", "zinc pca"): "Together they provide excellent oil control and acne management.",
+    ("salicylic acid", "niacinamide"): "Salicylic acid clears pores while niacinamide soothes and repairs.",
+    ("hyaluronic acid", "ceramides"): "Hyaluronic acid hydrates while ceramides lock in moisture.",
+    ("centella asiatica", "panthenol"): "A powerful soothing duo that calms irritation and supports healing.",
+    ("retinol", "ceramides"): "Retinol renews skin while ceramides protect the barrier from irritation.",
+}
+
+
+def describe_benefits(matched_good):
+    if not matched_good:
+        return ""
+    parts = []
+    for ing in matched_good:
+        ing_lower = ing.lower().strip()
+        benefit = INGREDIENT_BENEFITS.get(ing_lower, "supports healthy skin function")
+        parts.append(f"- **{ing}**: {benefit}")
+    synergy = ""
+    for ing1, ing2 in [("niacinamide", "zinc pca"), ("salicylic acid", "niacinamide"), ("hyaluronic acid", "ceramides"), ("centella asiatica", "panthenol"), ("retinol", "ceramides")]:
+        if ing1 in [i.lower() for i in matched_good] and ing2 in [i.lower() for i in matched_good]:
+            synergy = "\n\n" + SYNERGY_NOTES.get((ing1, ing2), "")
+            break
+    body = "\n".join(parts)
+    return body + synergy
+
+
 INGREDIENT_SYNONYMS = {
     "niacinamide": ["niacinamide", "vitamin b3", "nicotinamide"],
     "salicylic acid": ["salicylic acid", "bha", "beta hydroxy acid"],
@@ -83,7 +125,7 @@ def score_product(product, recommendations):
         "status": status,
         "matched_good": matched_good,
         "matched_bad": matched_bad,
-        "why_recommended": f"Matches helpful ingredients: {', '.join(matched_good)}"
+        "why_recommended": describe_benefits(matched_good)
         if matched_good
         else "",
         "why_avoided": f"Contains avoid ingredients: {', '.join(matched_bad)}"
