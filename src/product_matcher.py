@@ -128,6 +128,7 @@ def score_product(product, recommendations):
         "why_recommended": describe_benefits(matched_good)
         if matched_good
         else "",
+        "highlights": product.get("highlights", ""),
         "why_avoided": f"Contains avoid ingredients: {', '.join(matched_bad)}"
         if matched_bad
         else "",

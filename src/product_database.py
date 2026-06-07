@@ -22,7 +22,8 @@ def load_products_from_csv(csv_path=None):
             "region": [r.strip() for r in row.get("region", "India").split(";")],
             "raw_ingredients": row["raw_ingredients"],
             "ingredients": parsed["ingredients"],
-            "key_actives": parsed["key_actives"]
+            "key_actives": parsed["key_actives"],
+            "highlights": row.get("highlights", "")
         })
 
     return products
