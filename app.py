@@ -444,7 +444,7 @@ if st.button("Analyze My Skin", type="primary"):
                 st.write(f"Match: {get_match_label(product['score'])}")
                 st.markdown(product["why_recommended"])
                 st.divider()
-                st.markdown(product["highlights"])
+                st.markdown(product.get("highlights", ""))
 
     currency = "£" if region_label == "UK" else "₹"
     st.caption(f"Showing products available in **{region_label}** | Budget: **{budget_label}**")
